@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/main.css" rel="stylesheet"> //linking this html file to the CSS files WE edit
+    <!-- linking this html file to the CSS files WE edit, the rest are bootstrap business -->
+    <link rel="stylesheet" type="text/html" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/html" href="/css/main.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Home</title>
 </head>
 <body>
-this is ,my projet JAJAJAJAJAJ TESTINGGGG1q234
+    <h1>HOME</h1>
+    <span class="border">
+    <input type="text" id="name">
+    <a href="shop.html"><button type="button" class="btn btn-primary" onclick="savename()">Enter name</button></a>
+    </span>
 
-
-make a chaasdnge
 </body>
 </html>
 <script>
     //javascript here
+    function savename(){
+        localStorage.name = document.getElementById("name").value;
+    }
 
 </script>
-<script src="/js/bootstrap.min.js"></script> // dont touch this, why you touch
+ <!-- dont touch this its bootstrap -->
+<script type="javascript" src="js/bootstrap.min.js"></script>
