@@ -11,6 +11,7 @@
 <body>
     <!--Header of page-->
 <div class="bg-info clearfix">
+    <span id="top"></span>
     <a href="draft.html"><button type="button" class="btn btn-secondary float-right">Angelzone</button></a>
     <a href="index.html"><button type="button" class="btn btn-secondary float-right">About</button></a>
     <a href="index.html"><button type="button" class="btn btn-secondary float-right">Support</button></a>
@@ -23,6 +24,7 @@
         <h1 style="text-align: center">Shop</h1>
     </div>
     <div class="col-xs-4">
+        <a href="ex7checkout.html" > <button class="btn btn-primary btn-lg btn-block">See cart</button></a>
     </div>
 </div>
     <hr>
@@ -30,7 +32,12 @@
 <div class="row">
     <div class="col-xs-4">
         <!-- item 1 -->
-        <h3>Echo Dot (2nd Generation) - Black</h3>
+        <h3>Product 1</h3>
+        <img src="alexa.jpg" height="50%"><br>
+        PRICE:  €49.99 each<br><hr>
+        Enter Quantity: <input type="text" id="quantity1"> <button onclick="addAlexa()">Add to cart</button>
+        <br><br>
+        <h3>Product 4</h3>
         <img src="alexa.jpg" height="50%"><br>
         PRICE:  €49.99 each<br><hr>
         Enter Quantity: <input type="text" id="quantity1"> <button onclick="addAlexa()">Add to cart</button>
@@ -38,26 +45,49 @@
     </div>
     <div class="col-xs-4">
         <!-- item 2 -->
-        <h3>Beats Solo3 Wireless On-Ear Headphones - Neighbourhood Collection </h3>
+        <h3>Product 2 </h3>
         <img src="headset.jfif" height="50%"><br>
         PRICE: €231 each<br><hr>
         Enter Quantity: <input type="text" id="quantity2"> <button onclick="addHeadset()">Add to cart</button>
         <br><br>
+        <h3>Product 5</h3>
+        <img src="alexa.jpg" height="50%"><br>
+        PRICE:  €49.99 each<br><hr>
+        Enter Quantity: <input type="text" id="quantity1"> <button onclick="addAlexa()">Add to cart</button>
+        <br><br>
     </div>
     <div class="col-xs-4">
         <!-- item 3 -->
-        <h3>Samsung Gear 3 Smart Watch</h3>
+        <h3>Product 3</h3>
         <img src="watch.jpg" height="50%"><br>
         PRICE:  €340<br><hr>
         Enter Quantity: <input type="text" id="quantity3"> <button onclick="addWatch()">Add to cart</button>
         <br><br>
-        <button><a href="ex7checkout.html" style="text-decoration:none;">See cart</a></button>
+        <h3>Product 6</h3>
+        <img src="alexa.jpg" height="50%"><br>
+        PRICE:  €49.99 each<br><hr>
+        Enter Quantity: <input type="text" id="quantity1"> <button onclick="addAlexa()">Add to cart</button>
+        <br><br>
     </div>
 </div>
-
-
-
-
+    <!--Go to top button-->
+<a href="#top"><button class="btn btn-light">Go to top</button></a>
 
 </body>
 </html>
+<script>
+    sessionStorage.quantityAlexa = 0;
+    sessionStorage.quantityHeadset = 0;
+    sessionStorage.quantityWatch = 0;
+
+    // Add as many functions as products
+    function addAlexa(){
+        sessionStorage.quantityAlexa = document.getElementById("quantity1").value;
+    }
+    function addHeadset(){
+        sessionStorage.quantityHeadset = document.getElementById("quantity2").value;
+    }
+    function addWatch(){
+        sessionStorage.quantityWatch = document.getElementById("quantity3").value;
+    }   
+</script>
