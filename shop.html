@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +9,55 @@
     <title>Shop</title>
 </head>
 <body>
+    <!--Header of page-->
+<div class="bg-info clearfix">
+    <a href="draft.html"><button type="button" class="btn btn-secondary float-right">Angelzone</button></a>
+    <a href="index.html"><button type="button" class="btn btn-secondary float-right">About</button></a>
+    <a href="index.html"><button type="button" class="btn btn-secondary float-right">Support</button></a>
+</div>
+    <!--Upper set of columns here-->
+<div class="row">
+    <div class="col-xs-4">
+    </div>
+    <div class="col-xs-4">
+        <h1 style="text-align: center">Shop</h1>
+    </div>
+    <div class="col-xs-4">
+    </div>
+</div>
+    <hr>
+    <!--Body set of columns here-->
+<div class="row">
+    <div class="col-xs-4">
+        <!-- item 1 -->
+        <h3>Echo Dot (2nd Generation) - Black</h3>
+        <img src="alexa.jpg" height="50%"><br>
+        PRICE:  €49.99 each<br><hr>
+        Enter Quantity: <input type="text" id="quantity1"> <button onclick="addAlexa()">Add to cart</button>
+        <br><br>
+    </div>
+    <div class="col-xs-4">
+        <!-- item 2 -->
+        <h3>Beats Solo3 Wireless On-Ear Headphones - Neighbourhood Collection </h3>
+        <img src="headset.jfif" height="50%"><br>
+        PRICE: €231 each<br><hr>
+        Enter Quantity: <input type="text" id="quantity2"> <button onclick="addHeadset()">Add to cart</button>
+        <br><br>
+    </div>
+    <div class="col-xs-4">
+        <!-- item 3 -->
+        <h3>Samsung Gear 3 Smart Watch</h3>
+        <img src="watch.jpg" height="50%"><br>
+        PRICE:  €340<br><hr>
+        Enter Quantity: <input type="text" id="quantity3"> <button onclick="addWatch()">Add to cart</button>
+        <br><br>
+        <button><a href="ex7checkout.html" style="text-decoration:none;">See cart</a></button>
+    </div>
+</div>
+
+
+
+
 
 </body>
 </html>
