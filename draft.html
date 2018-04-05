@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Shop</title>
+</head>
+<body>
+
+    <div class="bg-info clearfix">
+    <button type="button" class="btn btn-secondary float-left">My account</button>
+    <button type="button" class="btn btn-secondary float-right">Shopping cart</button>
+    <a href="index.html"><button type="button" class="btn btn-secondary float-right">Log out</button></a>
+    </div>
+<div class="row">
+    <div class="col-xs-4">
+    </div>
+    <div class="col-xs-4">
+
+        <h2 style="text-align: center">Hello <span id="customerName"></span>.  What would you like to do?</h2>  <!-- displays the name of the customer when he logs in-->
+    </div>
+    <div class="col-xs-4">
+    </div>
+</div><!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
+<hr>
+<div class="row">
+    <div class="col-xs-4">
+        <img src="images/angel.gif" width="600" height="600" id="myPicture" alt="Image couldnt load">
+    </div>
+    <div class="col-xs-4">
+        <button type="button" class="btn btn-primary btn-lg btn-block">Browse the shop</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block">Subscribe to premium</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block">See shopping cart</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block">Change account details</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block">Log out</button>
+    </div>
+    <div class="col-xs-4">
+    </div>
+</div>
+<!-- item 1 -->
+
+<!--<h3>Echo Dot (2nd Generation) - Black</h3>-->
+<!--<img src="alexa.jpg" height="50%"><br>-->
+<!--PRICE:  €49.99 each<br><hr>-->
+<!--Enter Quantity: <input type="text" id="quantity1"> <button onclick="addAlexa()">Add to cart</button>-->
+<!--<br><br>-->
+<!--&lt;!&ndash; item 2 &ndash;&gt;-->
+<!--<h3>Beats Solo3 Wireless On-Ear Headphones - Neighbourhood Collection </h3>-->
+<!--<img src="headset.jfif" height="50%"><br>-->
+<!--PRICE: €231 each<br><hr>-->
+<!--Enter Quantity: <input type="text" id="quantity2"> <button onclick="addHeadset()">Add to cart</button>-->
+<!--<br><br>-->
+<!--<br><br>-->
+<!--&lt;!&ndash; item 3 &ndash;&gt;-->
+    <!--<h3>Samsung Gear 3 Smart Watch</h3>-->
+    <!--<img src="watch.jpg" height="50%"><br>-->
+    <!--PRICE:  €340<br><hr>-->
+    <!--Enter Quantity: <input type="text" id="quantity3"> <button onclick="addWatch()">Add to cart</button>-->
+    <!--<br><br>-->
+    <!--<button><a href="index.html" style="text-decoration:none;">See cart</a></button>-->
+
+</body>
+</html>
+<script>
+
+    var pictures = new Array("images/ash.png","images/samsumg.jpg","images/watch.jpg");
+    var randomNum = Math.floor(Math.random() * pictures.length);
+    document.getElementById("myPicture").src = pictures[randomNum];
+    // displays the name of the customer when he logs in
+    document.getElementById("customerName").innerHTML = localStorage.name;
+
+
+
+</script>
+<script src="/js/bootstrap.min.js"></script>
