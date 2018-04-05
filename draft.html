@@ -31,7 +31,7 @@
     <!--Body set of columns here-->
 <div class="row">
     <div class="col-xs-4">
-        <img src="" width="100%" height="100%" id="myPicture" alt="Image could not load">
+        <img src="" class="img-thumbnail" width="100%" height="auto" id="myPicture" alt="Responsive image">
     </div>
     <div class="col-xs-4">
         <a href="index.html"><button type="button" class="btn btn-primary btn-lg btn-block">Browse the shop</button></a><br>
@@ -95,10 +95,15 @@
         document.getElementById("customerName").innerHTML = localStorage.name3;
         document.getElementById("oldCustomerName").innerHTML = localStorage.name3;
     }
-    else
+    else if (sessionStorage.name == localStorage.name4)
     {
         document.getElementById("customerName").innerHTML = localStorage.name4;
         document.getElementById("oldCustomerName").innerHTML = localStorage.name4;
+    }
+    else
+    {
+        document.getElementById("customerName").innerHTML = "Guest";
+
     }
 
     // Makes visible the fields for changing user details
