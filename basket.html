@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <title>Basket</title>
+</head>
+<body>
+<!--Header of page-->
+<div class="bg-info clearfix">
+    <span id="top"></span>
+    <a href="draft.html"><button type="button" class="btn btn-secondary float-right">Angelzone</button></a>
+    <a href="index.html"><button type="button" class="btn btn-secondary float-right">About</button></a>
+    <a href="index.html"><button type="button" class="btn btn-secondary float-right">Support</button></a>
+</div>
+
+<!--Upper set of columns here-->
+<div class="row">
+    <div class="col-xs-4">
+    </div>
+    <div class="col-xs-4">
+        <h1 style="text-align: center">Basket</h1>
+    </div>
+    <div class="col-xs-4">
+        <a href="index.html" > <button class="btn btn-primary btn-lg btn-block">Confirm</button></a>
+    </div>
+</div>
+<hr>
+ <!--Body set of columns but only two-->
+<div class="row">
+    <!-- One of two columns  -->
+    <div class="col-xs-6">
+        <h2 style="text-align: center">Hello <span id="customerName"></span>.  This is what you ordered</h2>
+        <img src="alexa.jpg" height="50%"><br>
+        <img src="headset.jfif" height="50%"><br>
+        <img src="watch.jpg" height="50%"><br>
+        <p id="cost"></p>
+    </div>
+    <!--Column two-->
+    <div class="col-xs-6">
+
+    </div>
+</div>
+
+
+</body>
+</html>
+<script>
+
+    // Displays the name of the customer when he logs in
+    if (sessionStorage.name == localStorage.name1)
+    {
+        document.getElementById("customerName").innerHTML = localStorage.name1;
+    }
+    else if (sessionStorage.name == localStorage.name2)
+    {
+        document.getElementById("customerName").innerHTML = localStorage.name2;
+    }
+    else if (sessionStorage.name == localStorage.name3)
+    {
+        document.getElementById("customerName").innerHTML = localStorage.name3;
+    }
+    else if (sessionStorage.name == localStorage.name4)
+    {
+        document.getElementById("customerName").innerHTML = localStorage.name4;
+    }
+    else
+    {
+        document.getElementById("customerName").innerHTML = "Guest";
+
+    }
+
+    // add more products here to the calculations of the final price
+    document.getElementById("cost").innerHTML = "<br><br>Total price is " + ((+sessionStorage.quantityAlexa * 49.99) + (+sessionStorage.quantityHeadset * 231) + (+sessionStorage.quantityWatch * 340)) + "€";
+
+    //!!!! planning to do a visible/invisible thing with the product pictures, if quantity > 0 then visible.
+</script>
