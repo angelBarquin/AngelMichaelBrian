@@ -34,50 +34,108 @@
         <img src="" width="100%" height="100%" id="myPicture" alt="Image could not load">
     </div>
     <div class="col-xs-4">
-        <button type="button" class="btn btn-primary btn-lg btn-block">Browse the shop</button>
-        <button type="button" class="btn btn-primary btn-lg btn-block">Subscribe to premium</button>
-        <button type="button" class="btn btn-primary btn-lg btn-block">See shopping cart</button>
-        <button type="button" class="btn btn-primary btn-lg btn-block">Change account details</button>
-        <a href="index.html"><button type="button" class="btn btn-primary btn-lg btn-block">Log out</button></a>
+        <a href="index.html"><button type="button" class="btn btn-primary btn-lg btn-block">Browse the shop</button></a><br>
+        <a href="index.html"><button type="button" class="btn btn-primary btn-lg btn-block">Subscribe to premium</button></a><br>
+        <a href="index.html"> <button type="button" class="btn btn-primary btn-lg btn-block">See shopping cart</button></a><br>
+        <button type="button" onclick="displayBoxes()" class="btn btn-primary btn-lg btn-block">Change account details</button><br>
+        <a href="index.html"><button type="button" class="btn btn-primary btn-lg btn-block">Log out</button></a><br>
+
+        <div class="invisible" id="detailsForm"><form>
+            <div class="form-group">
+                <label>Username: <span id="oldCustomerName"></span></label>
+                <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter new username">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your username with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" id="pass" placeholder="Password">
+            </div>
+            <button type="button" id="changeDetailsButton" class="btn btn-primary" onclick="changeDetails()">Change details</button>
+            <div class="form-check">
+            </div>
+        </form></div>
+        <p id="successMessage" class="text-danger"></p>
     </div>
     <div class="col-xs-4">
         <img src="images/weeklydraw.png" width="92%" height="92%" id="draw" alt="Image could not load">
         <a href="form.html"><button type="button" class="btn btn-secondary btn-lg btn-block">Register here for a monthly draw of a premium subscription</button></a>
    </div>
 </div>
-<!-- item 1 -->
-
-<!--<h3>Echo Dot (2nd Generation) - Black</h3>-->
-<!--<img src="alexa.jpg" height="50%"><br>-->
-<!--PRICE:  €49.99 each<br><hr>-->
-<!--Enter Quantity: <input type="text" id="quantity1"> <button onclick="addAlexa()">Add to cart</button>-->
-<!--<br><br>-->
-<!--&lt;!&ndash; item 2 &ndash;&gt;-->
-<!--<h3>Beats Solo3 Wireless On-Ear Headphones - Neighbourhood Collection </h3>-->
-<!--<img src="headset.jfif" height="50%"><br>-->
-<!--PRICE: €231 each<br><hr>-->
-<!--Enter Quantity: <input type="text" id="quantity2"> <button onclick="addHeadset()">Add to cart</button>-->
-<!--<br><br>-->
-<!--<br><br>-->
-<!--&lt;!&ndash; item 3 &ndash;&gt;-->
-    <!--<h3>Samsung Gear 3 Smart Watch</h3>-->
-    <!--<img src="watch.jpg" height="50%"><br>-->
-    <!--PRICE:  €340<br><hr>-->
-    <!--Enter Quantity: <input type="text" id="quantity3"> <button onclick="addWatch()">Add to cart</button>-->
-    <!--<br><br>-->
-    <!--<button><a href="index.html" style="text-decoration:none;">See cart</a></button>-->
 
 </body>
 </html>
 <script>
 
+    // This is to allow the key 13(enter) to click Change details
+    var input = document.getElementById("pass");
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            document.getElementById("changeDetailsButton").click();
+        }
+    });
+
+    // Random image generator. We use an array with the path of different images and replace the src with a random one
     var pictures = new Array("images/samsumg.jpg","images/watch.jpg", "images/mcdonalds.png", "images/iphone.jpg", "images/skittles.jpg", "images/doritos.png");
     var randomNum = Math.floor(Math.random() * pictures.length);
     document.getElementById("myPicture").src = pictures[randomNum];
-    // displays the name of the customer when he logs in
-    document.getElementById("customerName").innerHTML = localStorage.name;
 
+    // Displays the name of the customer when he logs in
+    if (sessionStorage.name == localStorage.name1)
+    {
+        document.getElementById("customerName").innerHTML = localStorage.name1;
+        document.getElementById("oldCustomerName").innerHTML = localStorage.name1;
+    }
+    else if (sessionStorage.name == localStorage.name2)
+    {
+        document.getElementById("customerName").innerHTML = localStorage.name2;
+        document.getElementById("oldCustomerName").innerHTML = localStorage.name2;
+    }
+    else if (sessionStorage.name == localStorage.name3)
+    {
+        document.getElementById("customerName").innerHTML = localStorage.name3;
+        document.getElementById("oldCustomerName").innerHTML = localStorage.name3;
+    }
+    else
+    {
+        document.getElementById("customerName").innerHTML = localStorage.name4;
+        document.getElementById("oldCustomerName").innerHTML = localStorage.name4;
+    }
 
+    // Makes visible the fields for changing user details
+    function displayBoxes(){
 
+        document.getElementById("detailsForm").className = "visible";
+
+    }
+
+    // Changes the details of the customer that logged in
+    function changeDetails(){
+
+        if (sessionStorage.name == localStorage.name1)
+        {
+            localStorage.name1 = document.getElementById("name").value;
+            localStorage.password1 = document.getElementById("pass").value;
+        }
+        else if (sessionStorage.name == localStorage.name2)
+        {
+            localStorage.name2 = document.getElementById("name").value;
+            localStorage.password2 = document.getElementById("pass").value;
+        }
+        else if (sessionStorage.name == localStorage.name3)
+        {
+            localStorage.name3 = document.getElementById("name").value;
+            localStorage.password3 = document.getElementById("pass").value;
+        }
+        else
+        {
+            localStorage.name4 = document.getElementById("name").value;
+            localStorage.password4 = document.getElementById("pass").value;
+        }
+
+        // Makes the form invisible again and displays a message
+        document.getElementById("detailsForm").className = "invisible";
+
+        document.getElementById("successMessage").innerHTML = "Details changed successfully";
+    }
 </script>
 

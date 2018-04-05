@@ -47,55 +47,63 @@
               </div>
             </form>
             <p id="errorMessage" class="text-danger"></p> <!--Error message if details are wrong-->
-            <button type="button" class="btn btn-primary" onclick="login()">Log in</button>
+            <button type="button" id="loginButton" class="btn btn-primary" onclick="validating()">Log in</button>
          </span>
     </div>
     <div class="col-xs-4">
     </div>
 </div>
 
-<hr>
-
-<!--footer buttons?-->
-<div class="bg-info clearfix">
-    <button type="button" class="btn btn-secondary float-left">Example Button floated left</button>
-    asdf
-    <button type="button" class="btn btn-secondary float-right">Example Button floated right</button>
-</div>
-
 </body>
 </html>
 <script>
-    //javascript here
-    function login(){
-        savename();
-        validating();
+
+    while (localStorage.i == 0)
+    {
+        // Precoded usernames and passwords to be executed only once.
+        localStorage.name1 = "Angel";
+        localStorage.password1 = "1234";
+        localStorage.name2 = "Mary";
+        localStorage.password2 = "0987";
+        localStorage.name3 = "Michael";
+        localStorage.password3 = "4321";
+        localStorage.name4 = "Brian";
+        localStorage.password4 = "5678"
+
+        localStorage.i = 1;
     }
 
-    function savename(){
-        localStorage.name = document.getElementById("name").value;
-        localStorage.password = document.getElementById("pass").value;
-    }
+    // This is to allow the key 13(enter) to click Log in
+    var input = document.getElementById("pass");
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            document.getElementById("loginButton").click();
+        }
+    });
 
     function validating() {
        var name = document.getElementById("name").value;
        var password = document.getElementById("pass").value;
 
-        if (name == "Angel" && password == "1234")
+        if (name == localStorage.name1 && password == localStorage.password1)
         {
             window.location = "draft.html";
+            sessionStorage.name = localStorage.name1;
         }
-        else if (name == "Patrick" && password == "4321")
+        else if (name == localStorage.name2 && password == localStorage.password2)
         {
             window.location = "draft.html";
+            sessionStorage.name = localStorage.name2;
         }
-        else if (name == "Mary" && password == "0987")
+        else if (name == localStorage.name3 && password == localStorage.password3)
         {
             window.location = "draft.html";
+            sessionStorage.name = localStorage.name3;
         }
-        else if (name == "Jack" && password == "1111")
+        else if (name == localStorage.name4 && password == localStorage.password4)
         {
             window.location = "draft.html";
+            sessionStorage.name = localStorage.name4;
         }
         else
         {
