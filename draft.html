@@ -6,15 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Shop</title>
+    <title>Draft</title>
 </head>
 <body>
-
-    <div class="bg-info clearfix">
-    <button type="button" class="btn btn-secondary float-left">My account</button>
-    <button type="button" class="btn btn-secondary float-right">Shopping cart</button>
-    <a href="index.html"><button type="button" class="btn btn-secondary float-right">Log out</button></a>
-    </div>
+    <!--Header of page-->
+<div class="bg-info clearfix">
+    <a href="draft.html"><button type="button" class="btn btn-secondary float-right">Angelzone</button></a>
+    <a href="index.html"><button type="button" class="btn btn-secondary float-right">About</button></a>
+    <a href="index.html"><button type="button" class="btn btn-secondary float-right">Support</button></a>
+</div>
+    <!--Upper set of columns here-->
 <div class="row">
     <div class="col-xs-4">
     </div>
@@ -25,20 +26,24 @@
     <div class="col-xs-4">
     </div>
 </div><!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
+
 <hr>
+    <!--Body set of columns here-->
 <div class="row">
     <div class="col-xs-4">
-        <img src="images/angel.gif" width="600" height="600" id="myPicture" alt="Image couldnt load">
+        <img src="" width="100%" height="100%" id="myPicture" alt="Image could not load">
     </div>
     <div class="col-xs-4">
         <button type="button" class="btn btn-primary btn-lg btn-block">Browse the shop</button>
         <button type="button" class="btn btn-primary btn-lg btn-block">Subscribe to premium</button>
         <button type="button" class="btn btn-primary btn-lg btn-block">See shopping cart</button>
         <button type="button" class="btn btn-primary btn-lg btn-block">Change account details</button>
-        <button type="button" class="btn btn-primary btn-lg btn-block">Log out</button>
+        <a href="index.html"><button type="button" class="btn btn-primary btn-lg btn-block">Log out</button></a>
     </div>
     <div class="col-xs-4">
-    </div>
+        <img src="images/weeklydraw.png" width="92%" height="92%" id="draw" alt="Image could not load">
+        <a href="form.html"><button type="button" class="btn btn-secondary btn-lg btn-block">Register here for a monthly draw of a premium subscription</button></a>
+   </div>
 </div>
 <!-- item 1 -->
 
@@ -66,7 +71,7 @@
 </html>
 <script>
 
-    var pictures = new Array("images/ash.png","images/samsumg.jpg","images/watch.jpg");
+    var pictures = new Array("images/samsumg.jpg","images/watch.jpg", "images/mcdonalds.png", "images/iphone.jpg", "images/skittles.jpg", "images/doritos.png");
     var randomNum = Math.floor(Math.random() * pictures.length);
     document.getElementById("myPicture").src = pictures[randomNum];
     // displays the name of the customer when he logs in
@@ -75,4 +80,4 @@
 
 
 </script>
-<script src="/js/bootstrap.min.js"></script>
+

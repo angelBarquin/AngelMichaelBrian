@@ -6,53 +6,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Log in</title>
 </head>
 <body>
-<div class ="container-fluid">
-    <!--Head buttons ok-->
-    <div class="bg-info clearfix">
-        <button type="button" class="btn btn-secondary float-left">Example Button floated left</button>
-        asdf
-        <button type="button" class="btn btn-secondary float-right">Example Button floated right</button>
+    <!--Header of page-->
+<div class="bg-info clearfix">
+    <a href="draft.html"><button type="button" class="btn btn-secondary float-right">Angelzone</button></a>
+    <a href="index.html"><button type="button" class="btn btn-secondary float-right">About</button></a>
+    <a href="index.html"><button type="button" class="btn btn-secondary float-right">Support</button></a>
+</div>
+    <!--Upper set of columns here-->
+<div class="row">
+    <div class="col-xs-4">
     </div>
-
-    <div class="row">
-        <div class="col-xs-4">
-        </div>
-        <div class="col-xs-4">
-            <h1 style="text-align: center" >Angelzon</h1>
-            <p id="errorMessage" class="text-danger"></p>
-        </div>
-        <div class="col-xs-4">
-        </div>
-
-    </div><!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
-
-    <div class="row">
-
-        <div class="col-xs-4">
-        </div>
-
-        <div class="col-xs-4">
-            <span class="border">
-                Username: <input type="text" id="name">
-                Password: <input type="password" id="pass">
-        <button type="button" class="btn btn-primary" onclick="login()">Log in</button>
-             </span>
-        </div>
-
-        <div class="col-xs-4">
-        </div>
+    <div class="col-xs-4">
+        <h1 style="text-align: center" >Angelzone</h1>
     </div>
+    <div class="col-xs-4">
+    </div>
+</div><!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
 
-    <!--footer buttons?-->
-    <div class="bg-info clearfix">
+<hr>
+    <!--Body set of columns here-->
+<div class="row">
+    <div class="col-xs-4">
+    </div>
+    <div class="col-xs-4">
+        <span class="border">
+            <form>
+              <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter username">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your username with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" id="pass" placeholder="Password">
+              </div>
+              <div class="form-check">
+              </div>
+            </form>
+            <p id="errorMessage" class="text-danger"></p> <!--Error message if details are wrong-->
+            <button type="button" class="btn btn-primary" onclick="login()">Log in</button>
+         </span>
+    </div>
+    <div class="col-xs-4">
+    </div>
+</div>
+
+<hr>
+
+<!--footer buttons?-->
+<div class="bg-info clearfix">
     <button type="button" class="btn btn-secondary float-left">Example Button floated left</button>
     asdf
     <button type="button" class="btn btn-secondary float-right">Example Button floated right</button>
-    </div>
 </div>
+
 </body>
 </html>
 <script>
@@ -71,7 +81,19 @@
        var name = document.getElementById("name").value;
        var password = document.getElementById("pass").value;
 
-        if (name == "angel" && password == "1234")
+        if (name == "Angel" && password == "1234")
+        {
+            window.location = "draft.html";
+        }
+        else if (name == "Patrick" && password == "4321")
+        {
+            window.location = "draft.html";
+        }
+        else if (name == "Mary" && password == "0987")
+        {
+            window.location = "draft.html";
+        }
+        else if (name == "Jack" && password == "1111")
         {
             window.location = "draft.html";
         }
