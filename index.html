@@ -22,7 +22,7 @@
 <div class="bg-info clearfix">
     <a href="index.html"><button type="button" class="btn btn-secondary float-right">Angelzone</button></a>
     <a href="draft.html"><button type="button" class="btn btn-secondary float-right">About</button></a>
-    <a href="index.html"><button type="button" class="btn btn-secondary float-right">Support</button></a>
+    <a href="index.html"><button type="button" class="btn btn-secondary float-right">Contact us</button></a>
 </div>
     <!--Upper set of columns here-->
 <div class="row">
@@ -66,6 +66,10 @@
 </body>
 </html>
 <script>
+    if (localStorage.i == null)
+    {
+        localStorage.i = 0;
+    }
 
     while (localStorage.i == 0)
     {
