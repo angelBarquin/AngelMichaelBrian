@@ -74,8 +74,20 @@
 
     }
 
-    // add more products here to the calculations of the final price
-    document.getElementById("cost").innerHTML = "<br><br>Total price is " + ((+sessionStorage.quantityAlexa * 49.99) + (+sessionStorage.quantityHeadset * 231) + (+sessionStorage.quantityWatch * 340)) + "€";
 
+    // add more products here to the calculations of the final price
+    var subTotal = ((+sessionStorage.quantityAlexa * 49.99) + (+sessionStorage.quantityHeadset * 231) + (+sessionStorage.quantityWatch * 340))
+
+    document.getElementById("cost").innerHTML = "<br><br>Subtotal price is " + "€";
+
+    var coupon = document.getElementById("couponInput").value;
+
+    var totalPrice = 0;
+
+    if (coupon == "SPRING")
+    {
+        var totalPrice = subTotal - ((subTotal * 10 ) / 100);
+
+    }
     //!!!! planning to do a visible/invisible thing with the product pictures, if quantity > 0 then visible.
 </script>

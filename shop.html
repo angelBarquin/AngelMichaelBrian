@@ -10,11 +10,11 @@
 </head>
 <body>
     <!--Header of page-->
-<div class="bg-info clearfix">
+<div id="myback" style="background-color: red" class="bg-info clearfix">
     <span id="top"></span>
     <a href="draft.html"><button type="button" class="btn btn-secondary float-right">Angelzone</button></a>
     <a href="index.html"><button type="button" class="btn btn-secondary float-right">About</button></a>
-    <a href="index.html"><button type="button" class="btn btn-secondary float-right">Support</button></a>
+    <button onclick="changeBack()" type="button" class="btn btn-secondary float-right">Change theme</button>
 </div>
     <!--Upper set of columns here-->
 <div class="row">
@@ -89,5 +89,9 @@
     }
     function addWatch(){
         sessionStorage.quantityWatch = document.getElementById("quantity3").value;
+    }
+    function changeBack(){
+
+        document.getElementById("myback").style.backgroundColor = "yellow";
     }
 </script>
