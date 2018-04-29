@@ -21,18 +21,16 @@
 </head>
 <body>
     <!--Header of page-->
-<div class="bg-info clearfix">
     <a href="draft.html"><button type="button" class="btn btn-secondary float-right">Angelzone</button></a>
     <a href="index.html"><button type="button" class="btn btn-secondary float-right">About</button></a>
-    <a href="index.html"><button type="button" class="btn btn-secondary float-right">Try our dark theme</button></a>
-</div>
+    <button type="button" id="theme" onclick="darkTheme()" class="btn btn-secondary float-right">Try our dark theme</button></a>
     <!--Upper set of columns here-->
 <div class="row">
     <div class="col-xs-4">
     </div>
     <div class="col-xs-4">
 
-        <h2 style="text-align: center">Hello <span id="customerName"></span>.  What would you like to do?</h2>  <!-- displays the name of the customer when he logs in-->
+        <h2 id="header1" style="text-align: center">Hello <span id="customerName"></span>.  What would you like to do?</h2>  <!-- displays the name of the customer when he logs in-->
     </div>
     <div class="col-xs-4">
     </div>
@@ -45,13 +43,13 @@
         <img src="" class="img-thumbnail" width="500" height="300" id="myPicture" alt="Responsive image">
     </div>
     <div class="col-xs-4">
-        <a href="shop.html"><button type="button" class="btn btn-primary btn-lg btn-block">Browse the shop</button></a><br>
-        <button type="button" onclick="displayCoupons()" class="btn btn-primary btn-lg btn-block">Request Coupon</button><br>
-        <a href="basket.html"> <button type="button" class="btn btn-primary btn-lg btn-block">See shopping cart</button></a><br>
-        <button type="button" onclick="displayBoxes()" class="btn btn-primary btn-lg btn-block">Change account details</button><br>
-        <a href="index.html"><button type="button" class="btn btn-primary btn-lg btn-block">Log out</button></a><br>
+        <a href="shop.html"><button type="button" id="button1" class="btn btn-primary btn-lg btn-block">Browse the shop</button></a><br>
+        <button id="button2" type="button" onclick="displayCoupons()" class="btn btn-primary btn-lg btn-block">Request Coupon</button><br>
+        <a href="basket.html"> <button  id="button3" type="button" class="btn btn-primary btn-lg btn-block">See shopping cart</button></a><br>
+        <button  id="button4" type="button" onclick="displayBoxes()" class="btn btn-primary btn-lg btn-block">Change account details</button><br>
+        <a href="index.html"><button  id="button5" type="button" class="btn btn-primary btn-lg btn-block">Log out</button></a><br>
 
-        <div class="invisible" id="detailsForm"><form>
+        <div class="invisible" id="detailsForm"><form id="loginDetails">
             <div class="form-group">
                 <label>Username: <span id="oldCustomerName"></span></label>
                 <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter new username">
@@ -164,6 +162,34 @@
         document.getElementById("detailsForm").className = "invisible";
 
         document.getElementById("successMessage").innerHTML = "Details changed successfully";
+    }
+
+    //function for a dark theme page
+    var pressed = false;
+
+    function darkTheme() {
+
+        if (pressed == false)
+        {
+            pressed = true;
+
+            document.getElementById("theme").innerHTML = "Reverse to light theme";
+            document.getElementById("header1").style.color = "white";
+            document.body.style.backgroundImage= "url('images/dark1.jpg')";
+            document.getElementById("successMessage").className = "p-3 mb-2 bg-warning text-white";
+            document.getElementById("loginDetails").style.color = "white";
+            document.getElementById("changeDetailsButton").className = "btn btn-light";
+            document.getElementById("button1").className = "btn btn-secondary btn-lg btn-block";
+            document.getElementById("button2").className = "btn btn-secondary btn-lg btn-block";
+            document.getElementById("button3").className = "btn btn-secondary btn-lg btn-block";
+            document.getElementById("button4").className = "btn btn-secondary btn-lg btn-block";
+            document.getElementById("button5").className = "btn btn-secondary btn-lg btn-block";
+
+        }
+        else{
+            window.location.reload();
+        }
+
     }
 </script>
 

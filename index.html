@@ -21,15 +21,19 @@
         h1{
             color: black;
         }
+        #headButtons{
+            opacity: 0.8;
+            filter: alpha(opacity=50);
+        }
     </style>
 </head>
 <body>
     <!--Header of page-->
-<div class="bg-info clearfix">
-    <a href="index.html"><button type="button" class="btn btn-secondary float-right">Angelzone</button></a>
-    <a href="draft.html"><button type="button" class="btn btn-secondary float-right">About</button></a>
-    <button type="button" id="theme" onclick="darkTheme()" class="btn btn-secondary float-right">Try our dark theme</button></a>
-</div>
+    <div id="headButtons">
+        <a href="index.html"><button type="button" class="btn btn-secondary float-right">Angelzone</button></a>
+        <a href="draft.html"><button type="button" class="btn btn-secondary float-right">About</button></a>
+        <button type="button" id="theme" onclick="darkTheme()" class="btn btn-secondary float-right">Try our dark theme</button></a>
+    </div>
     <!--Upper set of columns here-->
 <div class="row">
     <div class="col-xs-4">
@@ -48,7 +52,7 @@
     </div>
     <div class="col-xs-4">
         <span class="border">
-            <form>
+            <form id="loginDetails">
               <div class="form-group">
                 <label>Username</label>
                 <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter username">
@@ -142,14 +146,15 @@
 
             document.getElementById("theme").innerHTML = "Reverse to light theme";
             document.getElementById("header1").style.color = "white";
-            document.body.style.backgroundImage = url("images/dark1.jpg");
+            document.body.style.backgroundImage= "url('images/dark1.jpg')";
+            document.getElementById("errorMessage").className = "p-3 mb-2 bg-warning text-white";
+            document.getElementById("loginDetails").style.color = "white";
+            document.getElementById("loginButton").className = "btn btn-light";
 
-        }
+            }
         else{
             window.location.reload();
         }
-
-
 
     }
 
