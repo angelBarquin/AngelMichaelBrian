@@ -7,18 +7,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Form</title>
+    <style>
+
+        body {
+            background-image: url("images/back2.jpg");
+
+
+        }
+        hr{
+            border-top: 3px double #8c8b8b;
+        }
+        #headButtons{
+            opacity: 0.7;
+            filter: alpha(opacity=50);
+        }
+    </style>
 </head>
 <body>
     <!--Header of page-->
-
-    <a href="draft.html"><button type="button" class="btn btn-secondary float-right">Angelzone</button></a>
-    <a href="index.html"><button type="button" class="btn btn-secondary float-right">About</button></a>
-    <a href="index.html"><button type="button" class="btn btn-secondary float-right">Support</button></a>
+    <div id="headButtons">
+        <a href="draft.html"><button type="button" class="btn btn-secondary float-right">Angelzone</button></a>
+        <button type="button" id="theme" onclick="darkTheme()" class="btn btn-secondary float-right">Try our dark theme</button></a>
+    </div>
 
     <div class="row">
         <!-- One of two columns  -->
         <div class="col-xs-6">
-            <form>
+            <form id="formDetails">
                 <div class="form-group">
                     <label>Full name</label>
                     <input type="text" class="form-control" id="fullName" placeholder="First and Last Name" required="required">
@@ -300,7 +315,7 @@
                     <label>Date of birth</label>
                     <input type="date" class="form-control" id="date1" required="required">
                 </div>
-                <button type="submit" class="btn btn-primary" onclick="saveform()" value="Complete Registration">Submit</button>
+                <button type="submit" id="submitButton" class="btn btn-primary" onclick="saveform()" value="Complete Registration">Submit</button>
             </form>
          </div>
          <!--Column two-->
@@ -330,6 +345,26 @@
         localStorage.date = document.getElementById("date1").value;
     }
 
+    //function for a dark theme page
+    var pressed = false;
+
+    function darkTheme() {
+
+        if (pressed == false)
+        {
+            pressed = true;
+
+            document.getElementById("theme").innerHTML = "Reverse to light theme";
+            document.body.style.backgroundImage= "url('images/dark1.jpg')";
+            document.getElementById("formDetails").style.color = "white";
+            document.getElementById("submitButton").className = "btn btn-light";
+
+        }
+        else{
+            window.location.reload();
+        }
+
+    }
 
 
 </script>

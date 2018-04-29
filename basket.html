@@ -8,14 +8,34 @@
     <meta charset="UTF-8">
     <meta charset="UTF-8">
     <title>Basket</title>
+
+    <style>
+
+        body {
+            background-image: url("images/back.jpg");
+
+
+        }
+        hr{
+            border-top: 3px double #8c8b8b;
+        }
+        h1{
+            color: black;
+        }
+        #headButtons{
+            opacity: 0.8;
+            filter: alpha(opacity=50);
+        }
+    </style>
+
 </head>
 <body>
 <!--Header of page-->
     <span id="top"></span>
-    <a href="draft.html"><button type="button" class="btn btn-secondary float-right">Angelzone</button></a>
-    <a href="index.html"><button type="button" class="btn btn-secondary float-right">About</button></a>
-    <a href="index.html"><button type="button" class="btn btn-secondary float-right">Support</button></a>
-
+    <div id="headButtons">
+        <a href="draft.html"><button type="button" class="btn btn-secondary float-right">Angelzone</button></a>
+        <button type="button" id="theme" onclick="darkTheme()" class="btn btn-secondary float-right">Try our dark theme</button></a>
+    </div>
 
 <!--Upper set of columns here-->
 <div class="row">

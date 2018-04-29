@@ -17,13 +17,19 @@
         hr{
             border-top: 3px double #8c8b8b;
         }
+        #headButtons{
+            opacity: 0.7;
+            filter: alpha(opacity=50);
+        }
     </style>
 </head>
 <body>
     <!--Header of page-->
-    <a href="draft.html"><button type="button" class="btn btn-secondary float-right">Angelzone</button></a>
-    <a href="index.html"><button type="button" class="btn btn-secondary float-right">About</button></a>
-    <button type="button" id="theme" onclick="darkTheme()" class="btn btn-secondary float-right">Try our dark theme</button></a>
+    <div id="headButtons">
+        <a href="draft.html"><button type="button" class="btn btn-secondary float-right">Angelzone</button></a>
+        <button type="button" id="theme" onclick="darkTheme()" class="btn btn-secondary float-right">Try our dark theme</button></a>
+    </div>
+
     <!--Upper set of columns here-->
 <div class="row">
     <div class="col-xs-4">

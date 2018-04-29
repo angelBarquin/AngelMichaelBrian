@@ -7,28 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Shop</title>
+
+    <style>
+
+        body {
+            background-image: url("images/back.jpg");
+
+
+        }
+        hr{
+            border-top: 3px double #8c8b8b;
+        }
+        h1{
+            color: black;
+        }
+        #headButtons{
+            opacity: 0.8;
+            filter: alpha(opacity=50);
+        }
+    </style>
 </head>
 <body>
     <!--Header of page-->
     <span id="top"></span>
-    <a href="draft.html"><button type="button" class="btn btn-secondary float-right">Angelzone</button></a>
-    <a href="index.html"><button type="button" class="btn btn-secondary float-right">About</button></a>
-    <button onclick="changeBack()" type="button" class="btn btn-secondary float-right">Change theme</button>
-
+    <div id="headButtons">
+        <a href="draft.html"><button type="button" class="btn btn-secondary float-right">Angelzone</button></a>
+        <button type="button" id="theme" onclick="darkTheme()" class="btn btn-secondary float-right">Try our dark theme</button></a>
+    </div>
     <!--Upper set of columns here-->
 <div class="row">
     <div class="col-xs-4">
     </div>
     <div class="col-xs-4">
-        <h1 style="text-align: center">Shop</h1>
+        <h1 id="header1" style="text-align: center">Shop</h1>
     </div>
     <div class="col-xs-4">
-        <a href="basket.html" > <button class="btn btn-primary btn-lg btn-block">See cart</button></a>
+        <a href="basket.html" > <button id="cartButton" class="btn btn-primary btn-lg btn-block">See cart</button></a>
     </div>
 </div>
     <hr>
     <!--Body set of columns here-->
-<div class="row">
+<div id="productText" class="row">
     <div class="col-xs-4">
         <!-- item 1 -->
         <h3>Product 1</h3>
@@ -70,7 +89,7 @@
     </div>
 </div>
     <!--Go to top button-->
-<a href="#top"><button class="btn btn-light">Go to top</button></a>
+<a href="#top"><button id="topButton" class="btn btn-primary">Go to top</button></a>
 
 </body>
 </html>
@@ -92,5 +111,28 @@
     function changeBack(){
 
         document.getElementById("myback").style.backgroundColor = "yellow";
+    }
+
+    //function for a dark theme page
+    var pressed = false;
+
+    function darkTheme() {
+
+        if (pressed == false)
+        {
+            pressed = true;
+
+            document.getElementById("theme").innerHTML = "Reverse to light theme";
+            document.getElementById("header1").style.color = "white";
+            document.body.style.backgroundImage= "url('images/dark1.jpg')";
+            document.getElementById("cartButton").className = "btn btn-secondary btn-lg btn-block";
+            document.getElementById("topButton").className = "btn btn-light";
+            document.getElementById("productText").style.color = "white";
+
+        }
+        else{
+            window.location.reload();
+        }
+
     }
 </script>
