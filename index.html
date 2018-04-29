@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Log in</title>
+    <title>Authentication</title>
 
     <style>
 
@@ -15,6 +15,12 @@
 
 
         }
+        hr{
+            border-top: 3px double #8c8b8b;
+        }
+        h1{
+            color: black;
+        }
     </style>
 </head>
 <body>
@@ -22,14 +28,14 @@
 <div class="bg-info clearfix">
     <a href="index.html"><button type="button" class="btn btn-secondary float-right">Angelzone</button></a>
     <a href="draft.html"><button type="button" class="btn btn-secondary float-right">About</button></a>
-    <a href="index.html"><button type="button" class="btn btn-secondary float-right">Contact us</button></a>
+    <button type="button" id="theme" onclick="darkTheme()" class="btn btn-secondary float-right">Try our dark theme</button></a>
 </div>
     <!--Upper set of columns here-->
 <div class="row">
     <div class="col-xs-4">
     </div>
     <div class="col-xs-4">
-        <h1 style="text-align: center" >Angelzone</h1>
+        <h1 id="header1" style="text-align: center" >Angelzone</h1>
     </div>
     <div class="col-xs-4">
     </div>
@@ -123,6 +129,28 @@
         {
             document.getElementById("errorMessage").innerHTML = "Wrong details";
         }
+    }
+
+    //function for a dark theme page
+    var pressed = false;
+
+    function darkTheme() {
+
+        if (pressed == false)
+        {
+            pressed = true;
+
+            document.getElementById("theme").innerHTML = "Reverse to light theme";
+            document.getElementById("header1").style.color = "white";
+            document.body.style.backgroundImage = url("images/dark1.jpg");
+
+        }
+        else{
+            window.location.reload();
+        }
+
+
+
     }
 
 </script>
