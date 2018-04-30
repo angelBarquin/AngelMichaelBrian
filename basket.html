@@ -13,7 +13,7 @@
 
         body {
             background-image: url("images/back.jpg");
-
+            background-size: 2500px 2500px;
 
         }
         hr{
@@ -33,19 +33,20 @@
 <!--Header of page-->
     <span id="top"></span>
     <div id="headButtons">
-        <a href="draft.html"><button type="button" class="btn btn-secondary float-right">Angelzone</button></a>
+        <a href="draft.html"><button type="button" class="btn btn-secondary float-right">Draft</button></a>
         <button type="button" id="theme" onclick="darkTheme()" class="btn btn-secondary float-right">Try our dark theme</button></a>
     </div>
 
 <!--Upper set of columns here-->
 <div class="row">
     <div class="col-xs-4">
+        <a href="shop.html" > <button id="shopButton" class="btn btn-primary btn-lg btn-block">Shop</button></a>
     </div>
     <div class="col-xs-4">
         <h1 id="header1" style="text-align: center">Basket</h1>
     </div>
     <div class="col-xs-4">
-        <a href="index.html" > <button id="confirmButton" class="btn btn-primary btn-lg btn-block">Confirm</button></a>
+        <button id="confirmButton" onclick="alert('Thank you for shopping with us')" class="btn btn-primary btn-lg btn-block">Confirm</button></a>
     </div>
 </div>
 <hr>
@@ -53,20 +54,32 @@
 <div class="row">
     <!-- One of two columns  -->
     <div class="col-xs-6">
-        <h2 style="text-align: center">Hello <span id="customerName"></span>.  This is what you ordered</h2>
-        <img src="" height="50%"><br>
-        <img src="" height="50%"><br>
-        <img src="" height="50%"><br>
-        <p id="cost"></p>
+
+        <h2  id="greeting" style="text-align: left">Hello <span id="customerName"></span>.  This is what you ordered: </h2>
+
+        <span class="invisible" id="graham"><img src="images/grahamwine.jpg" class="img-thumbnail" height="50%"></span>
+        <span class="invisible" id="spanish"><img src="images/spanishwine.jpg" class="img-thumbnail" height="50%"></span>
+        <span class="invisible" id="red"><img src="images/redwine.jpg" class="img-thumbnail" height="50%"></span>
+        <span class="invisible" id="gin"><img src="images/gin.jpg" class="img-thumbnail" height="50%"></span>
+        <span class="invisible" id="vodka"><img src="images/vodka70.jpg" class="img-thumbnail" height="50%"></span>
+        <span class="invisible" id="malibu"><img src="images/malibu.jpg" class="img-thumbnail" height="50%"></span>
+        <span class="invisible" id="champagne"><img src="images/champagne.jpg" class="img-thumbnail" height="50%"></span>
+        <span class="invisible" id="rose"><img src="images/rosewine.jpg" class="img-thumbnail" height="50%"></span>
+        <span class="invisible" id="cheap"><img src="images/cheapwine.jpg" class="img-thumbnail" height="50%"></span>
+
     </div>
     <!--Column two-->
     <div class="col-xs-6">
-        Have a coupon?
+        <h1 id="couponQuestion">Have a coupon?</h1>
         <input id="couponInput" type="text">
+        <button class="btn btn-primary" id="couponButton" onclick="addCoupon()">Apply Coupon</button>
+        <p id="errorMessage" class="text-danger"></p> <!--Error message if details are wrong-->
+        <br><br>
+        <h1 id="cost"></h1>
+        <h1 id="finalCost"></h1>
 
     </div>
 </div>
-
 
 </body>
 </html>
@@ -95,23 +108,81 @@
 
     }
 
+    //displays the products selected
+    if (sessionStorage.quantityGrahamWine > 0)
+    {
+        document.getElementById("graham").className = "visible";
 
+    }
+    if (sessionStorage.quantitySpanishWine > 0)
+    {
+        document.getElementById("spanish").className = "visible";
+
+    }
+    if (sessionStorage.quantityRedWine > 0)
+    {
+        document.getElementById("red").className = "visible";
+
+    }
+    if (sessionStorage.quantityGin > 0)
+    {
+        document.getElementById("gin").className = "visible";
+
+    }
+    if (sessionStorage.quantityVodka > 0)
+    {
+        document.getElementById("vodka").className = "visible";
+
+    }
+    if (sessionStorage.quantityMalibu > 0)
+    {
+        document.getElementById("malibu").className = "visible";
+
+    }
+    if (sessionStorage.quantityChampagne > 0)
+    {
+        document.getElementById("champagne").className = "visible";
+
+    }
+    if (sessionStorage.quantityRoseWine > 0)
+    {
+        document.getElementById("rose").className = "visible";
+
+    }
+    if (sessionStorage.quantityCheapWine > 0)
+    {
+        document.getElementById("cheap").className = "visible";
+
+    }
+
+    var subTotal = 0;
     // add more products here to the calculations of the final price
-    var subTotal = ((+sessionStorage.quantityAlexa * 49.99) + (+sessionStorage.quantityHeadset * 231) + (+sessionStorage.quantityWatch * 340))
+    subTotal = ((+sessionStorage.quantityGrahamWine * 20) + (+sessionStorage.quantitySpanishWine * 17) + (+sessionStorage.quantityRedWine * 14) + (+sessionStorage.quantityGin * 30) + (+sessionStorage.quantityVodka * 25) + (+sessionStorage.quantityMalibu * 20) + (+sessionStorage.quantityChampagne * 40) + (+sessionStorage.quantityRoseWine * 15) + (+sessionStorage.quantityCheapWine * 5));
 
     document.getElementById("cost").innerHTML = "<br><br>Subtotal price is €" + subTotal;
 
+    if (subTotal == 0)
+    {
+        document.getElementById("cost").innerHTML = "Please select a product from our shop";
+
+    }
+
+
+    //discounts the price with coupon validation
     function addCoupon(){
 
         var coupon = document.getElementById("couponInput").value;
-
-        var totalPrice = 0;
+        var totalPrice = subTotal;
 
         if (coupon == "SPRING")
         {
-            var totalPrice = subTotal - ((subTotal * 10 ) / 100);
-            //valid coupon message display
-            //DOM = total price is "x"
+            totalPrice = subTotal - ((subTotal * 10 ) / 100);
+            document.getElementById("finalCost").innerHTML = "<br><br>Total price is €" + totalPrice;
+
+        }
+        else
+        {
+            document.getElementById("errorMessage").innerHTML = "Invalid coupon";
 
         }
     }
@@ -127,8 +198,14 @@
 
             document.getElementById("theme").innerHTML = "Reverse to light theme";
             document.getElementById("header1").style.color = "white";
+            document.getElementById("cost").style.color = "white";
+            document.getElementById("finalCost").style.color = "white";
+            document.getElementById("greeting").style.color = "white";
+            document.getElementById("couponQuestion").style.color = "white";
             document.body.style.backgroundImage= "url('images/dark1.jpg')";
             document.getElementById("confirmButton").className = "btn btn-secondary btn-lg btn-block";
+            document.getElementById("shopButton").className = "btn btn-secondary btn-lg btn-block";
+            document.getElementById("couponButton").className = "btn btn-light";
 
         }
         else{
